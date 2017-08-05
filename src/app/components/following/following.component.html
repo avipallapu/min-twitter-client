@@ -1,0 +1,23 @@
+<h1 *ngIf="following">
+  People I following
+</h1>
+<br/>
+<div *ngFor="let follower of following">
+  <div class="well">
+    <ul class="list-group">
+      <li class="list-group-item">
+        Name : {{ follower.ID }}
+      </li>
+      <li class="list-group-item">
+        Name : {{ follower.NAME }}
+      </li>
+      <li class="list-group-item">
+        Handle : {{ follower.HANDLE }}
+      </li>
+      <li class="list-group-item">
+        <button class="btn btn-danger btn-sm" (click)="unfollow(follower.ID)">unfollow</button>
+      </li>
+      <br/>
+    </ul>
+  </div>
+</div>

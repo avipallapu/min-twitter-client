@@ -1,0 +1,23 @@
+<form (submit)="searchMessages()">
+    <input type="text" class="form-control" [(ngModel)]="search" name="search" placeholder="Search Messages Here">
+</form>
+<h1 *ngIf="messages">
+  Search Results
+</h1>
+<br/>
+<div *ngFor="let message of messages">
+  <div class="well">
+    <ul class="list-group">
+      <li class="list-group-item">
+        From : {{ message.id }}
+      </li>
+      <li class="list-group-item">
+        To : {{ message.person_id }}
+      </li>
+      <li class="list-group-item">
+        Content : {{ message.content }}
+      </li>
+      <br/>
+    </ul>
+  </div>
+</div>
