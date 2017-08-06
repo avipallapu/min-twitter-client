@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,13 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   search:string;
-  constructor() { }
+  loggedIn:boolean;
+
+  constructor(
+    public flashMessagesService:FlashMessagesService,
+    public router:Router
+  ) {
+    if(localStorage.getItem('loggedIn') == '' || localStorage.getItem('loggedIn') == null){
+      this.loggedIn = false;
+    }
+    else{
+      this.loggedIn = true;
+    }
+  }
 
   ngOnInit() {
   }
 
-  searchMessages(){
-
+  onLogoutClick(){
+    localStorage.setItem('loggedIn','');
+    this.flashMessagesService.show("You are logged out", {cssClass:'alert-success', timeout:2000});
+    this.router.navigate(['']);
+    location.reload();
   }
 
 }

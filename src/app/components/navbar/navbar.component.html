@@ -9,17 +9,25 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item active" *ngIf="loggedIn">
           <a class="nav-link" href="#" routerLink="/messages">Messages</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item active" *ngIf="loggedIn">
+          <a class="nav-link" href="#" routerLink="/search-messages">Search Messages</a>
+        </li>
+        <li class="nav-item active" *ngIf="loggedIn">
           <a class="nav-link" href="#" routerLink="/followers">Followers</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item active" *ngIf="loggedIn">
           <a class="nav-link" href="#" routerLink="/following">Following</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#" routerLink="/search-messages">Search Messages</a>
+        <li class="nav-item active" *ngIf="loggedIn">
+          <a class="nav-link" href="#" routerLink="/popular">Popular Followers</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active" *ngIf="loggedIn">
+          <a class="nav-link" href="#" (click)="onLogoutClick()">Logout</a>
         </li>
       </ul>
     </div>

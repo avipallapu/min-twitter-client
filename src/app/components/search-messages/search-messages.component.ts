@@ -11,6 +11,7 @@ import {Message} from '../../models/message';
 export class SearchMessagesComponent implements OnInit {
   search:string;
   messages:Message[];
+  count:number;
   constructor(
     private router:Router,
     public dataService: DataService) { }
@@ -20,7 +21,8 @@ export class SearchMessagesComponent implements OnInit {
 
   searchMessages(){
     this.dataService.getMessagesWithSearch(this.search).subscribe(messages => {
-      this.messages = messages;
+      this.messages = messages,
+      this.count = messages.length;
     });
   }
 

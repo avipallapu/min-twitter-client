@@ -1,0 +1,17 @@
+<h1 *ngIf="popularFollowers">
+  Popular Followers for each user
+</h1>
+<br/>
+<div *ngFor="let user of popularFollowers">
+  <div class="well">
+    <ul class="list-group">
+      <li class="list-group-item">
+        User : {{ user.id }}
+      </li>
+      <li class="list-group-item">
+        Popular Follower : {{ user.follower_id }}
+      </li>
+      <br/>
+    </ul>
+  </div>
+</div>

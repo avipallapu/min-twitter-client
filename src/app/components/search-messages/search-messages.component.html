@@ -1,8 +1,23 @@
 <form (submit)="searchMessages()">
-    <input type="text" class="form-control" [(ngModel)]="search" name="search" placeholder="Search Messages Here">
+    <div class="row">
+      <div class="col-md-9">
+        <input type="text" class="form-control" [(ngModel)]="search" name="search" placeholder="Search Messages Here">
+      </div>
+      <div class="col-md-3">
+        <button type="submit" value="submit" class="btn btn-default">submit</button>
+      </div>
+    </div>
+<br/>
+  <br/>
 </form>
 <h1 *ngIf="messages">
-  Search Results
+  <h1 *ngIf="count>1">
+    {{count}} messages match the search query
+  </h1>
+  <h1 *ngIf="count==1">
+    {{count}} message match the search query
+  </h1>
+
 </h1>
 <br/>
 <div *ngFor="let message of messages">

@@ -41,6 +41,14 @@ export class DataService {
       .map(res => res.json());
   }
 
+  public getPopularFollowers() {
+    console.log("dataservice getPopularFollowers entered ");
+    this.url = 'http://localhost:8080/popular/';
+    console.log(this.url);
+    return this.http.get(this.url)
+      .map(res => res.json());
+  }
+
   public follow(id) {
     console.log("dataservice follow entered ");
     this.url = 'http://localhost:8080/follow/'+id;
